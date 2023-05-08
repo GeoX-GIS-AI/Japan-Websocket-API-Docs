@@ -19,9 +19,9 @@ We can install and use the AWS Requests Auth library from [here](https://pypi.or
 
 ## Access API with Python
 1. We will need following libraries to be installed
-   - requests
-   - aws_requests_auth
-   - websocket
+```shell
+pip install websocket-client aws-requests-auth requests
+```
 
 ### Python code for websockets connection
 ```python
@@ -48,8 +48,8 @@ def prepare_aws_auth_headers(request_url):
     aws_details = {
         'aws_access_key': AWS_ACCESS_KEY,
         'aws_secret_access_key': AWS_SECRET_ACCESS_KEY,
-        'aws_host': host,
-        'aws_region': region,
+        'aws_host': host, # This is the host of the API (api.geox-ai-japan-commercial-insights.com)
+        'aws_region': region, # This is the region of the API (Tokyo)
         'aws_service': "execute-api"
     }
     auth = AWSRequestsAuth(**aws_details)
