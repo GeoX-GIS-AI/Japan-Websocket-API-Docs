@@ -28,6 +28,7 @@ pip install websocket-client aws-requests-auth requests
 import json
 import threading
 import time
+import re
 
 import websocket
 from aws_requests_auth.aws_auth import AWSRequestsAuth
