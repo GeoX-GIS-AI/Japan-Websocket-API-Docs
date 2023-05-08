@@ -55,9 +55,20 @@ def prepare_aws_auth_headers(request_url):
     auth = AWSRequestsAuth(**aws_details)
     return auth(request).headers
 
+def replace_unicode_escapes(match):
+    return match.group(0).encode('utf-8').decode('unicode_escape')
+
+
 
 def on_message(ws, message):
-    print("Received message: ", message)
+    try:
+        parsed_message = json.loads(message)
+        pretty_message = json.dumps(parsed_message, indent=4, sort_keys=True)
+        decoded_pretty_message = re.sub(r'(\\u[0-9a-fA-F]{4})', replace_unicode_escapes, pretty_message)
+        print("Pretty WebSocket Message:\n", decoded_pretty_message)
+    except json.JSONDecodeError:
+        decoded_message = message.encode('utf-8').decode('unicode_escape')
+        print("Received non-JSON message:\n", decoded_message)
 
 
 def on_error(ws, error):
