@@ -76,6 +76,8 @@ def on_open(ws):
             "payload": {
                 "address": "大分市中央町３丁目５−8",
                 "prefecture": "大分県",
+                "square_footage": 150,
+                "occupation_type": "病院、診療所"
             }
         }
         ws.send(json.dumps(get_reqeust))
@@ -89,11 +91,15 @@ def on_open(ws):
                 {
                     "address": "大分市中央町２丁目２−20",
                     "prefecture": "大分県",
+                    "square_footage": 150,
+                    "occupation_type": "病院、診療所",
                     "correlationId": "1"
                 },
                 {
                     "address": "大分市中央町３丁目６−29 布屋ビル 別館 1F",
                     "prefecture": "大分県",
+                    "square_footage": 150,
+                    "occupation_type": "病院、診療所",
                     "correlationId": "2"
                 }
             ]
@@ -146,6 +152,8 @@ wss://api.geox-ai-japan-commercial-insights.com
     "payload": {
         "address": "大分市中央町３丁目５−8",
         "prefecture": "大分県",
+        "square_footage": 150,
+        "occupation_type": "病院、診療所",
     }
 }
 ```
@@ -158,11 +166,15 @@ wss://api.geox-ai-japan-commercial-insights.com
         {
             "address": "大分市中央町２丁目２−20",
             "prefecture": "大分県",
+            "square_footage": 150,
+            "occupation_type": "病院、診療所",
             "correlationId": "1"
         },
         {
             "address": "大分市中央町３丁目６−29 布屋ビル 別館 1F",
             "prefecture": "大分県",
+            "square_footage": 150,
+            "occupation_type": "病院、診療所",
             "correlationId": "2"
         }
     ]
